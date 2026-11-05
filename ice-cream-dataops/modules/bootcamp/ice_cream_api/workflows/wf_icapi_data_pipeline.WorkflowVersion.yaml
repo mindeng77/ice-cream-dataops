@@ -2,6 +2,15 @@ workflowExternalId: wf_icapi_data_pipeline
 version: '1'
 workflowDefinition:
   tasks:
+  - externalId: contextualize_ts_assets_task
+    type: transformation
+    parameters:
+      transformation:
+        externalId: contextualize_ts_assets
+        concurrencyPolicy: fail
+    retries: 3
+    timeout: 3600
+    onFailure: abortWorkflow
   - externalId: icapi_datapoints_extractor_task
     type: function
     parameters:
@@ -11,5 +20,5 @@ workflowDefinition:
     retries: 3
     timeout: 3600
     onFailure: abortWorkflow
-    # dependsOn:
-    #   - externalId: contextualize_ts_assets_task
+    dependsOn:
+      - externalId: contextualize_ts_assets_task
