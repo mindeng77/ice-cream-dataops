@@ -1,0 +1,8 @@
+externalId: oee_dashboard
+name: OEE Dashboard
+creator: CDF Bootcamp Team
+description: Overall Equipment Effectiveness (OEE) per site and equipment, calculated by the oee_timeseries function
+entrypoint: main.py
+theme: Light
+published: true
+dataSetExternalId: {{ uc_oee_ds_external_id }}
